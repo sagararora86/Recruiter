@@ -1,0 +1,133 @@
+<div class="container">
+  <form #profileForm="ngForm">
+    
+    <div id="personalInformation">
+      <h2> Personal Information </h2>
+      <div class="form-row">
+
+        <!-- Name of the Profile -->
+        <div class="form-group col-md-6">
+          <label for="inputName"> 
+              Name: <span [hidden]="!name.valid"> {{model.name}} </span>
+          </label>
+          <input type="text" id="inputName" class="form-control" 
+                  placeholder="Full Name" required 
+                  [(ngModel)]="model.name" name="name" #name="ngModel"
+                  [class.is-invalid]="!(name.valid || name.pristine)">
+          <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
+            <p>Name is Required.</p>
+          </div>
+        </div>
+
+        <!-- Email of the Profile -->
+        <div class="form-group col-md-6">
+          <label for="inputName">Email:</label>
+          <input type="email" id="inputEmail" class="form-control" 
+                  placeholder="Email Address" required 
+                  [(ngModel)]="model.email" name="email" #email="ngModel"
+                  [class.is-invalid]="!(email.valid || email.pristine)">
+          <div [hidden]="email.valid || email.pristine" class="invalid-feedback">
+            <p>Email is Required.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <!-- Phone Number of the Profile -->
+        <div class="form-group col-md-6">
+        <label for="inputPhoneNumber">Phone Number:</label>
+        <input type="tel" id="inputPhoneNumber" class="form-control"
+                placeholder="Phone Number" required
+                [(ngModel)]="model.phoneNumber" name="phone" #phone="ngModel"
+                [class.is-invalid]="!(phone.valid || phone.pristine)">
+          <div [hidden]="email.valid || email.pristine" class="invalid-feedback">
+            <p>Phone Number is Required.</p>
+          </div>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="inputEducationDegree">Highest Education Degree:</label>
+            <input type="text" id="inputPhoneNumber" class="form-control"
+                    placeholder="Highest Education Degree" required
+                    [(ngModel)]="model.education" name="phone" #education="ngModel">
+        </div>
+
+      </div>
+    
+    </div>
+
+    <div id="Job Information">
+
+      <h2> Job Information </h2>
+
+      <div class="form-row">
+
+        <div class="form-group col-md-6">
+            <label for="inputCurrentCompany">Current Company:</label>
+            <input type="text" id="inputCurrentCompany" class="form-control"
+                  placeholder="Current Company"
+                  [(ngModel)]="model.currentCompany" name="currentCompany">
+        </div>
+
+        <!-- Current Location-->
+        <div class="form-group col-md-6">
+          <label for="inputLocation">Current Location:</label>
+          <input type="text" id="inputLocation" class="form-control"
+                placeholder="Current Location"
+                [(ngModel)]="model.currentLocation" name="currentLocation">
+        </div>
+      
+      </div>
+      
+      <div class="form-row">
+
+        <!-- Current CTC -->
+        <div class="form-group col-md-6">
+            <label for="inputCurrentCTC">Current CTC (LPA):</label>
+            <input type="text" id="inputCurrentCTC" class="form-control"
+                  placeholder="Current CTC (LPA)"
+                  [(ngModel)]="model.currentCTC" name="currentCTC">
+        </div>
+
+        <!-- Expected CTC -->
+        <div class="form-group col-md-6">
+          <label for="inputExpectedCTC">Expected CTC (LPA):</label>
+          <input type="text" id="inputCurrentCTC" class="form-control"
+            placeholder="Expected CTC (LPA)"
+            [(ngModel)]="model.expectedCTC" name="expectedCTC">
+        </div>
+
+      </div>
+
+      <div class="form-row">
+
+          <div class="form-group col-md-6 col-lg-3">
+              <label for="inputExperience">Experience (Years):</label>
+              <input type="text" id="inputExperience" class="form-control"
+                    placeholder="Experience (Years)"
+                    [(ngModel)]="model.experience" name="experience">
+            </div>
+          
+          <!-- Notice Period -->
+          <div class="form-group col-md-6 col-lg-3">
+            <label for="inputNoticePeriod">Notice Period (Days):</label>
+            <input type="text" id="inputNoticePeriod" class="form-control"
+                  placeholder="Notice Period (Days)"
+                  [(ngModel)]="model.noticePeriod" name="noticePeriod">
+          </div>
+  
+          <!-- Domain Exposure -->
+          <div class="form-group col-md-12 col-lg-6">
+              <label for="inputDomainExposure">Domain Exposure:</label>
+              <input type="text" id="inputDomainExposure" class="form-control"
+                    placeholder="Domain Exposure (Seperate Value By ,)"
+                    [(ngModel)]="model.domainExposure" name="domainExposure">
+          </div>
+  
+        </div>
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Candidate Information</button>
+  </form>
+</div>
